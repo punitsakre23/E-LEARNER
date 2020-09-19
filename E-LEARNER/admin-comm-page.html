@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Community Page</title>
+    <style>
+
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .data {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: initial;
+            width: auto;
+            background-color: lightgray;
+            margin-left: 8%;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            margin-right: 8%;
+            padding: 20px;
+            display: inline-block;
+        }
+
+        .table {
+            width: 100%;
+            margin-top: 20px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        th, td {
+            height: 40px;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .form {
+            margin-top: 20px;
+        }
+
+        input {
+            height: 40px;
+            text-indent: 20px;
+       }
+
+       button {
+           padding: 10px;
+       }
+
+       .modal {
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            display: none;
+        }
+
+        .modalchild {
+            height: 200px;
+            width: 70%;
+            background-color: white;
+            margin-left: 15%;
+            margin-top: 100px;
+            display: inline-block;
+            padding: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="modal" onclick="hideModal(event)">
+        <div class="modalchild">
+            <div class="form">
+                <form onsubmit="updateQuery(event)">
+                    <input type="text" required placeholder="Technology" id="uptech">
+                    <input type="text" required placeholder="Question" id="upques">
+                    <input type="text" required placeholder="Description" id="updesc">
+                    <input type="text" required placeholder="Name" id="upname">
+                    <input type="email" required placeholder="Mail" id="upmail">
+                    <input type="text" placeholder="Answer" id="upans">
+                    <input type="url" placeholder="Link" id="uplink">
+                    <input type="text" placeholder="Query" id="upquer">
+                    <button type="submit">Update Query</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="data">
+        <h1>Answer Doubts</h1>
+        
+        <div class="form">
+            <form onsubmit="addQuery(event)">
+                <input type="text" required placeholder="Technology" id="tech">
+                <input type="text" required placeholder="Question" id="ques">
+                <input type="text" required placeholder="Description" id="desc">
+                <input type="text" required placeholder="Name" id="name">
+                <input type="email" required placeholder="Mail" id="mail">
+                <input type="text" placeholder="Answer" id="ans">
+                <input type="url" placeholder="Link" id="link">
+                <input type="text" placeholder="Query" id="quer">
+                <button type="submit">Add Query</button>
+            </form>
+        </div>
+
+        <div class="form">
+            <input type="text" placeholder="Start Searching here" id="searchTech" onkeyup="searchByTech()" />
+        </div>
+
+        <table border="10" class="table" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Sr no</th>
+                    <th>Technology</th>
+                    <th>Question</th>
+                    <th>Description</th>
+                    <th>Name</th>
+                    <th>Mail</th>
+                    <th>Answer</th>
+                    <th>Link</th>
+                    <th>Query</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody class="tdata" id="tdata"></tbody>
+        </table>
+    </div>
+    
+    <script src="admin-comm-page.js"></script>
+</body>
+</html>
